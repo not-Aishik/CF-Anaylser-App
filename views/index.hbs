@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-light bg-secondary">
+        <a class="navbar-brand" href="#">
+            &nbsp;&nbsp;&nbsp;Codeforces Analyser
+        </a>
+    </nav>
+
+    <br><br><br><br>
+
+    <div class="jumbotron jumbotron-fluid center">
+        <div class="container">
+            <h1 class="display-4">Codeforces Analyser</h1>
+            <br>
+            <form action="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Enter username</span>
+                    <input type="text" class="form-control" placeholder="example: ab2310" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <button class="button-xlarge pure-button">Search</button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+    <div class="container center">
+        <h2 id="username"></h2>
+    </div>
+
+    <hr><br>
+
+    <div class="center">
+        <div class="card text-white bg-dark mb-3" style="width:500px;">
+            <div class="card-body">
+                <h5 class="card-title">Average rating of the problems solved by the user</h5>
+                <hr>
+                <p class="card-text" id="average"></p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm">
+                <div class="jumbotron jumbotron-fluid bg-light">
+                    <div class="container">
+                        <h2>Problem solved statistics</h2>
+                        <div style="height:700px; width:600px;">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="jumbotron jumbotron-fluid bg-light">
+                    <h2>Solved Problems By Tags</h2>
+                    <canvas id="circularChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
