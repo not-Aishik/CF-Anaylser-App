@@ -2,9 +2,11 @@ const form = document.querySelector("form");
 const search = document.querySelector("input");
 const username = document.querySelector("#username");
 const average = document.querySelector("#average");
+const average_name = document.querySelector("#average-name");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  document.getElementById("search-loader").style.display = "block";
   username.textContent = "Looking for users...";
   const userID = search.value;
   const url = "http://localhost:3000/data/?id=" + userID + "";
@@ -14,8 +16,11 @@ form.addEventListener("submit", (e) => {
         if (data.error) {
           username.textContent = data.error;
         } else {
-          username.textContent = "User found: "+ data.ID;
-          data.average = Number((data.average).toFixed(2));
+          document.getElementById("search-loader").style.display = "none";
+          username.textContent = "User found successfully";
+          average_name.textContent =
+            "Average rating of the problems solved by " + data.ID;
+          data.average = Number(data.average.toFixed(2));
           average.textContent = data.average;
           var ctx = document.getElementById("myChart");
           var myChart = new Chart(ctx, {
@@ -215,27 +220,16 @@ form.addEventListener("submit", (e) => {
                 "strings",
                 "number_theory",
                 "combinatorics",
-                "special",
                 "geometry",
                 "bitmasks",
                 "two_pointers",
                 "dsu",
-                "shortest_paths",
                 "probabilities",
                 "divide_and_conquer",
                 "hashing",
                 "games",
-                "flows",
                 "interactive",
                 "matrices",
-                "string_suffix_structures",
-                "fft",
-                "graph_matchings",
-                "ternary_search",
-                "expression_parsing",
-                "meet_in_the_middle",
-                "var_2_sat",
-                "chinese_remainder_theorem",
                 "schedules",
               ],
               datasets: [
@@ -257,56 +251,35 @@ form.addEventListener("submit", (e) => {
                     strings,
                     number_theory,
                     combinatorics,
-                    special,
                     geometry,
                     bitmasks,
                     two_pointers,
                     dsu,
-                    shortest_paths,
                     probabilities,
                     divide_and_conquer,
                     hashing,
                     games,
-                    flows,
                     interactive,
                     matrices,
-                    string_suffix_structures,
-                    fft,
-                    graph_matchings,
-                    ternary_search,
-                    expression_parsing,
-                    meet_in_the_middle,
-                    var_2_sat,
-                    chinese_remainder_theorem,
                     schedules,
                   ],
                   backgroundColor: [
+                    "rgb(215, 99, 132)",
+                    "rgb(225, 199, 132)",
+                    "rgb(235, 99, 12)",
+                    "rgb(245, 199, 132)",
+                    "rgb(155, 99, 12)",
+                    "rgb(155, 99, 132)",
+                    "rgb(15, 99, 182)",
+                    "rgb(155, 99, 72)",
+                    "rgb(15, 89, 162)",
+                    "rgb(155, 99, 132)",
                     "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
+                    "rgb(255, 79, 132)",
                     "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
-                    "rgb(25, 99, 132)",
-                    "rgb(255, 99, 132)",
+                    "rgb(255, 99, 122)",
+                    "rgb(255, 99, 112)",
+                    "rgb(25, 99, 142)",
                     "rgb(25, 99, 132)",
                   ],
                   hoverOffset: 4,
