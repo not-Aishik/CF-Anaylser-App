@@ -1,6 +1,12 @@
+const average = document.querySelector("#average");
+const average_name = document.querySelector("#average-name");
+
 const params = new URLSearchParams(document.location.search);
 const userID = params.get("id");
+console.log(userID);
 
+document.getElementById("search-loader").style.display = "block";
+username.textContent = "Looking for users...";
 const url = "http://localhost:3000/data/?id=" + userID + "";
 fetch(url).then((response) => {
   console.log(
@@ -8,7 +14,11 @@ fetch(url).then((response) => {
       if (data.error) {
         username.textContent = data.error;
       } else {
-        username.textContent = data.ID;
+        document.getElementById("search-loader").style.display = "none";
+        username.textContent = "User found successfully";
+        average_name.textContent =
+          "Average rating of the problems solved by " + data.ID;
+        data.average = Number(data.average.toFixed(2));
         average.textContent = data.average;
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
@@ -147,6 +157,132 @@ fetch(url).then((response) => {
                 beginAtZero: true,
               },
             },
+          },
+        });
+
+        let implementation = data.implementation,
+          math = data.math,
+          greedy = data.greedy,
+          dp = data.dp,
+          data_structures = data.data_structures,
+          brute_force = data.brute_force,
+          constructive_algorithms = data.constructive_algorithms,
+          graphs = data.graphs,
+          sortings = data.sortings,
+          binary_search = data.binary_search,
+          dfs_and_similar = data.dfs_and_similar,
+          trees = data.trees,
+          strings = data.strings,
+          number_theory = data.number_theory,
+          combinatorics = data.combinatorics,
+          special = data.special,
+          geometry = data.geometry,
+          bitmasks = data.bitmasks,
+          two_pointers = data.two_pointers,
+          dsu = data.dsu,
+          shortest_paths = data.shortest_paths,
+          probabilities = data.probabilities,
+          divide_and_conquer = data.divide_and_conquer,
+          hashing = data.hashing,
+          games = data.games,
+          flows = data.flows,
+          interactive = data.interactive,
+          matrices = data.matrices,
+          string_suffix_structures = data.string_suffix_structures,
+          fft = data.fft,
+          graph_matchings = data.graph_matchings,
+          ternary_search = data.ternary_search,
+          expression_parsing = data.expression_parsing,
+          meet_in_the_middle = data.meet_in_the_middle,
+          var_2_sat = data.var_2_sat,
+          chinese_remainder_theorem = data.chinese_remainder_theorem,
+          schedules = data.schedules;
+
+        var ctx = document.getElementById("circularChart");
+        var myChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: [
+              "implementation",
+              "math",
+              "greedy",
+              "dp",
+              "data_structures",
+              "brute_force",
+              "constructive_algorithms",
+              "graphs",
+              "sortings",
+              "binary_search",
+              "dfs_and_similar",
+              "trees",
+              "strings",
+              "number_theory",
+              "combinatorics",
+              "geometry",
+              "bitmasks",
+              "two_pointers",
+              "dsu",
+              "probabilities",
+              "divide_and_conquer",
+              "hashing",
+              "games",
+              "interactive",
+              "matrices",
+              "schedules",
+            ],
+            datasets: [
+              {
+                label: "CF Anaylser",
+                data: [
+                  implementation,
+                  math,
+                  greedy,
+                  dp,
+                  data_structures,
+                  brute_force,
+                  constructive_algorithms,
+                  graphs,
+                  sortings,
+                  binary_search,
+                  dfs_and_similar,
+                  trees,
+                  strings,
+                  number_theory,
+                  combinatorics,
+                  geometry,
+                  bitmasks,
+                  two_pointers,
+                  dsu,
+                  probabilities,
+                  divide_and_conquer,
+                  hashing,
+                  games,
+                  interactive,
+                  matrices,
+                  schedules,
+                ],
+                backgroundColor: [
+                  "rgb(215, 99, 132)",
+                  "rgb(225, 199, 132)",
+                  "rgb(235, 99, 12)",
+                  "rgb(245, 199, 132)",
+                  "rgb(155, 99, 12)",
+                  "rgb(145, 99, 132)",
+                  "rgb(75, 99, 112)",
+                  "rgb(135, 99, 72)",
+                  "rgb(15, 89, 122)",
+                  "rgb(155, 49, 132)",
+                  "rgb(25, 99, 132)",
+                  "rgb(255, 79, 132)",
+                  "rgb(25, 39, 132)",
+                  "rgb(255, 29, 122)",
+                  "rgb(255, 19, 112)",
+                  "rgb(25, 89, 142)",
+                  "rgb(25, 79, 132)",
+                ],
+                hoverOffset: 4,
+              },
+            ],
           },
         });
       }

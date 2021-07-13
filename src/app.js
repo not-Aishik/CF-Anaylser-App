@@ -7,15 +7,17 @@ const app = express();
 app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "hbs");
 
+//extension routes
 app.get("/extension", (req, res) => {
-  userID = req.query.id;
   res.render("extension");
 });
 
+//app routes
 app.get("", (req, res) => {
   res.render("index");
 });
 
+//data api
 app.get("/data", (req, res) => {
   if (!req.query.id) {
     return res.send({ Error: "ID not found" });
@@ -397,8 +399,11 @@ app.get("/data", (req, res) => {
   });
 });
 
+//error routes
 app.get("*", (req, res) => {
   res.render("error");
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log("SERVER RUNNING");
+});
