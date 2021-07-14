@@ -1,6 +1,8 @@
 # CF-Anaylser-App
 
-![Screenshot](App SS.png)
+<div align="center">
+    <img src="App-Screenshot" width="400px"</img> 
+</div>
 
 ## How To Use
 
