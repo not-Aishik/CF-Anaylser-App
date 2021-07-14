@@ -13,6 +13,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/not-Aishik/CF-Anaylser-App.git
 
 # Go into the repository
+$ cd CF-Anaylser-App
 
 # Install dependencies
 $ npm install
